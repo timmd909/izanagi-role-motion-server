@@ -1,0 +1,13 @@
+- name: 'Auto start Motion daemon'
+  lineinfile:
+    line: 'start_motion_daemon=yes'
+    path: /etc/default/motion
+    regexp: '^start_motion_daemon'
+    state: present
+
+- name: 'Allow Motion connections from anywhere'
+  lineinfile:
+    line: 'stream_localhost off'
+    path: /etc/motion/motion.conf
+    regexp: '^stream_localhost'
+    state: present
