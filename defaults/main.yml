@@ -1,1 +1,4 @@
 motion_stream_quality: 75
+
+# Set to `false` to allow connections from anywhere
+motion_server_localhost: true
