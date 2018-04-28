@@ -11,3 +11,10 @@
     path: /etc/motion/motion.conf
     regexp: '^stream_localhost'
     state: present
+
+- name: 'Set stream quality'
+  lineinfile:
+    line: 'stream_quality {{ motion_stream_quality }}'
+    path: /etc/motion/motion.conf
+    regexp: '^stream_quality'
+    state: present
