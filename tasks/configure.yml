@@ -4,6 +4,15 @@
     path: /etc/default/motion
     regexp: '^start_motion_daemon'
     state: present
+  when: motion_server_enabled
+
+- name: 'Do not autostart Motion daemon'
+  lineinfile:
+    line: 'start_motion_daemon=no'
+    path: /etc/default/motion
+    regexp: '^start_motion_daemon'
+    state: present
+  when: motion_server_enabled == false
 
 - name: 'Allow Motion connections from anywhere'
   lineinfile:
