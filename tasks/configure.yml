@@ -18,7 +18,7 @@
   lineinfile:
     line: 'stream_localhost off'
     path: /etc/motion/motion.conf
-    regexp: '^stream_localhost'
+    regexp: '^stream_localhost '
     state: present
   when: motion_server_localhost == false
 
@@ -26,13 +26,92 @@
   lineinfile:
     line: 'stream_localhost on'
     path: /etc/motion/motion.conf
-    regexp: '^stream_localhost'
+    regexp: '^stream_localhost '
     state: present
   when: motion_server_localhost == true
 
+#
+# Capture Device Options
+#
+
+- name: "Update motion image width"
+  lineinfile:
+    line: "width {{ motion_server_image_width }}"
+    path: /etc/motion/motion.conf
+    regexp: '^width '
+    state: present
+
+- name: "Update motion image height"
+  lineinfile:
+    line: "height {{ motion_server_image_height }}"
+    path: /etc/motion/motion.conf
+    regexp: '^height '
+    state: present
+
+- lineinfile:
+    line: "framerate {{ motion_server_framerate }}"
+    path: /etc/motion/motion.conf
+    regexp: '^framerate '
+    state: present
+
+- lineinfile:
+    line: "quality {{ motion_server_quality }}"
+    path: /etc/motion/motion.conf
+    regexp: '^quality '
+    state: present
+
+#
+# Motion Detection
+#
+- lineinfile:
+    line: "pre_capture {{ motion_server_pre_capture }}"
+    path: /etc/motion/motion.conf
+    regexp: '^pre_capture '
+    state: present
+
+- lineinfile:
+    line: "post_capture {{ motion_server_post_capture }}"
+    path: /etc/motion/motion.conf
+    regexp: '^post_capture '
+    state: present
+
+#
+# Image File Output
+#
+- lineinfile:
+    line: "output_pictures {{ motion_server_output_pictures }}"
+    path: /etc/motion/motion.conf
+    regexp: '^output_pictures '
+    state: present
+
+#
+# Live Stream Server
+#
 - name: 'Set stream quality'
   lineinfile:
-    line: 'stream_quality {{ motion_stream_quality }}'
+    line: 'stream_quality {{ motion_server_stream_quality }}'
     path: /etc/motion/motion.conf
-    regexp: '^stream_quality'
+    regexp: '^stream_quality '
+    state: present
+
+- name: 'Set stream max framerate'
+  lineinfile:
+    line: 'stream_maxrate {{ motion_server_stream_maxrate }}'
+    path: /etc/motion/motion.conf
+    regexp: '^stream_maxrate '
+    state: present
+
+- lineinfile:
+    line: 'stream_limit {{ motion_server_stream_limit }}'
+    path: /etc/motion/motion.conf
+    regexp: '^stream_limit '
+    state: present
+
+#
+# HTTP based control
+#
+- lineinfile:
+    line: 'webcontrol_localhost {{ motion_server_webcontrol_localhost }}'
+    path: /etc/motion/motion.conf
+    regexp: '^webcontrol_localhost '
     state: present
