@@ -16,12 +16,23 @@ motion_server_framerate: 30
 #
 motion_server_pre_capture: 0
 motion_server_post_capture: 0
+motion_server_event_gap: 60
+motion_server_max_movie_time: 0
 
 #
 # Image File Output
 #
 motion_server_output_pictures: off
 motion_server_quality: 75
+
+#
+# ffmpeg
+#
+motion_server_ffmpeg_video_codec: mpeg4
+motion_server_ffmpeg_timelapse: 0
+motion_server_ffmpeg_duplicate_frames: true
+motion_server_ffmpeg_timelapse: 0
+motion_server_ffmpeg_timelapse_mode: daily
 
 #
 # Live Stream Server
@@ -34,3 +45,11 @@ motion_server_stream_limit: 0
 # HTTP based control
 #
 motion_server_webcontrol_localhost: on
+
+#
+# Target Directories
+#
+motion_server_snapshot_filename: "%v-%Y%m%d%H%M%S-snapshot"
+motion_server_picture_filename: "%v-%Y%m%d%H%M%S-%q"
+motion_server_movie_filename: "%v-%Y%m%d%H%M%S"
+motion_server_timelapse_filename: "%Y%m%d-timelapse"

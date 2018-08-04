@@ -75,6 +75,18 @@
     regexp: '^post_capture '
     state: present
 
+- lineinfile:
+    line: "event_gap {{ motion_server_event_gap }}"
+    path: /etc/motion/motion.conf
+    regexp: '^event_gap '
+    state: present
+
+- lineinfile:
+    line: "max_movie_time {{ motion_server_max_movie_time }}"
+    path: /etc/motion/motion.conf
+    regexp: '^max_movie_time '
+    state: present
+
 #
 # Image File Output
 #
@@ -82,6 +94,33 @@
     line: "output_pictures {{ motion_server_output_pictures }}"
     path: /etc/motion/motion.conf
     regexp: '^output_pictures '
+    state: present
+
+#
+# ffmpeg
+#
+- lineinfile:
+    line: "ffmpeg_video_codec {{ motion_server_ffmpeg_video_codec }}"
+    path: /etc/motion/motion.conf
+    regexp: '^ffmpeg_video_codec '
+    state: present
+
+- lineinfile:
+    line: "ffmpeg_timelapse {{ motion_server_ffmpeg_timelapse }}"
+    path: /etc/motion/motion.conf
+    regexp: '^ffmpeg_timelapse '
+    state: present
+
+- lineinfile:
+    line: "ffmpeg_timelapse_mode {{ motion_server_ffmpeg_timelapse_mode }}"
+    path: /etc/motion/motion.conf
+    regexp: '^ffmpeg_timelapse_mode '
+    state: present
+
+- lineinfile:
+    line: "ffmpeg_duplicate_frames {{ motion_server_ffmpeg_duplicate_frames }}"
+    path: /etc/motion/motion.conf
+    regexp: '^ffmpeg_duplicate_frames '
     state: present
 
 #
@@ -114,4 +153,31 @@
     line: 'webcontrol_localhost {{ motion_server_webcontrol_localhost }}'
     path: /etc/motion/motion.conf
     regexp: '^webcontrol_localhost '
+    state: present
+
+#
+# Target Directories
+#
+- lineinfile:
+    line: 'snapshot_filename {{ motion_server_snapshot_filename }}'
+    path: /etc/motion/motion.conf
+    regexp: '^snapshot_filename '
+    state: present
+
+- lineinfile:
+    line: 'picture_filename {{ motion_server_picture_filename }}'
+    path: /etc/motion/motion.conf
+    regexp: '^picture_filename '
+    state: present
+
+- lineinfile:
+    line: 'movie_filename {{ motion_server_movie_filename }}'
+    path: /etc/motion/motion.conf
+    regexp: '^movie_filename '
+    state: present
+
+- lineinfile:
+    line: 'timelapse_filename {{ motion_server_timelapse_filename }}'
+    path: /etc/motion/motion.conf
+    regexp: '^timelapse_filename '
     state: present
