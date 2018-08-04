@@ -100,6 +100,12 @@
 # ffmpeg
 #
 - lineinfile:
+    line: "ffmpeg_output_movies {{ motion_server_ffmpeg_output_movies }}"
+    path: /etc/motion/motion.conf
+    regexp: '^ffmpeg_output_movies '
+    state: present
+
+- lineinfile:
     line: "ffmpeg_video_codec {{ motion_server_ffmpeg_video_codec }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_video_codec '
@@ -121,6 +127,12 @@
     line: "ffmpeg_duplicate_frames {{ motion_server_ffmpeg_duplicate_frames }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_duplicate_frames '
+    state: present
+
+- lineinfile:
+    line: "ffmpeg_bps {{ motion_server_ffmpeg_bps }}"
+    path: /etc/motion/motion.conf
+    regexp: '^ffmpeg_bps '
     state: present
 
 #

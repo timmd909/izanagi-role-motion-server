@@ -9,7 +9,7 @@ motion_server_enabled: false
 #
 motion_server_image_width: 640
 motion_server_image_height: 480
-motion_server_framerate: 30
+motion_server_framerate: 1
 
 #
 # Motion Detection
@@ -28,11 +28,13 @@ motion_server_quality: 75
 #
 # ffmpeg
 #
+motion_server_ffmpeg_output_movies: no
 motion_server_ffmpeg_video_codec: mpeg4
 motion_server_ffmpeg_timelapse: 0
 motion_server_ffmpeg_duplicate_frames: true
 motion_server_ffmpeg_timelapse: 0
 motion_server_ffmpeg_timelapse_mode: daily
+motion_server_ffmpeg_bps: 400000
 
 #
 # Live Stream Server
