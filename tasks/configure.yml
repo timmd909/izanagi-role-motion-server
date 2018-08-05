@@ -60,28 +60,53 @@
     regexp: '^quality '
     state: present
 
+- name: 'Motion setting: auto_brightness'
+  lineinfile:
+    line: "auto_brightness {{ motion_server_auto_brightness }}"
+    path: /etc/motion/motion.conf
+    regexp: '^auto_brightness '
+    state: present
+
+- name: 'Motion setting: brightness'
+  lineinfile:
+    line: "brightness {{ motion_server_brightness }}"
+    path: /etc/motion/motion.conf
+    regexp: '^brightness '
+    state: present
+
 #
 # Motion Detection
 #
-- lineinfile:
+- name: 'Motion setting: lightswitch'
+  lineinfile:
+    line: "lightswitch {{ motion_server_lightswitch }}"
+    path: /etc/motion/motion.conf
+    regexp: '^lightswitch '
+    state: present
+
+- name: 'Motion setting: pre_capture'
+  lineinfile:
     line: "pre_capture {{ motion_server_pre_capture }}"
     path: /etc/motion/motion.conf
     regexp: '^pre_capture '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: post_capture'
+  lineinfile:
     line: "post_capture {{ motion_server_post_capture }}"
     path: /etc/motion/motion.conf
     regexp: '^post_capture '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: event_gap'
+  lineinfile:
     line: "event_gap {{ motion_server_event_gap }}"
     path: /etc/motion/motion.conf
     regexp: '^event_gap '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: max_movie_time'
+  lineinfile:
     line: "max_movie_time {{ motion_server_max_movie_time }}"
     path: /etc/motion/motion.conf
     regexp: '^max_movie_time '
@@ -90,7 +115,8 @@
 #
 # Image File Output
 #
-- lineinfile:
+- name: 'Motion setting: output_pictures'
+  lineinfile:
     line: "output_pictures {{ motion_server_output_pictures }}"
     path: /etc/motion/motion.conf
     regexp: '^output_pictures '
@@ -99,37 +125,43 @@
 #
 # ffmpeg
 #
-- lineinfile:
+- name: 'Motion setting: ffmpeg_output_movies'
+  lineinfile:
     line: "ffmpeg_output_movies {{ motion_server_ffmpeg_output_movies }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_output_movies '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: ffmpeg_video_codec'
+  lineinfile:
     line: "ffmpeg_video_codec {{ motion_server_ffmpeg_video_codec }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_video_codec '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: ffmpeg_timelapse'
+  lineinfile:
     line: "ffmpeg_timelapse {{ motion_server_ffmpeg_timelapse }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_timelapse '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: ffmpeg_timelapse_mode'
+  lineinfile:
     line: "ffmpeg_timelapse_mode {{ motion_server_ffmpeg_timelapse_mode }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_timelapse_mode '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: ffmpeg_duplicate_frames'
+  lineinfile:
     line: "ffmpeg_duplicate_frames {{ motion_server_ffmpeg_duplicate_frames }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_duplicate_frames '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: ffmpeg_bps'
+  lineinfile:
     line: "ffmpeg_bps {{ motion_server_ffmpeg_bps }}"
     path: /etc/motion/motion.conf
     regexp: '^ffmpeg_bps '
@@ -138,21 +170,22 @@
 #
 # Live Stream Server
 #
-- name: 'Set stream quality'
+- name: 'Motion setting: stream_quality'
   lineinfile:
     line: 'stream_quality {{ motion_server_stream_quality }}'
     path: /etc/motion/motion.conf
     regexp: '^stream_quality '
     state: present
 
-- name: 'Set stream max framerate'
+- name: 'Motion setting: stream_maxrate'
   lineinfile:
     line: 'stream_maxrate {{ motion_server_stream_maxrate }}'
     path: /etc/motion/motion.conf
     regexp: '^stream_maxrate '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: stream_limit'
+  lineinfile:
     line: 'stream_limit {{ motion_server_stream_limit }}'
     path: /etc/motion/motion.conf
     regexp: '^stream_limit '
@@ -161,7 +194,8 @@
 #
 # HTTP based control
 #
-- lineinfile:
+- name: 'Motion setting: webcontrol_localhost'
+  lineinfile:
     line: 'webcontrol_localhost {{ motion_server_webcontrol_localhost }}'
     path: /etc/motion/motion.conf
     regexp: '^webcontrol_localhost '
@@ -170,25 +204,29 @@
 #
 # Target Directories
 #
-- lineinfile:
+- name: 'Motion setting: snapshot_filename'
+  lineinfile:
     line: 'snapshot_filename {{ motion_server_snapshot_filename }}'
     path: /etc/motion/motion.conf
     regexp: '^snapshot_filename '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: picture_filename'
+  lineinfile:
     line: 'picture_filename {{ motion_server_picture_filename }}'
     path: /etc/motion/motion.conf
     regexp: '^picture_filename '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: movie_filename'
+  lineinfile:
     line: 'movie_filename {{ motion_server_movie_filename }}'
     path: /etc/motion/motion.conf
     regexp: '^movie_filename '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: timelapse_filename'
+  lineinfile:
     line: 'timelapse_filename {{ motion_server_timelapse_filename }}'
     path: /etc/motion/motion.conf
     regexp: '^timelapse_filename '

@@ -10,10 +10,14 @@ motion_server_enabled: false
 motion_server_image_width: 640
 motion_server_image_height: 480
 motion_server_framerate: 1
+motion_server_auto_brightness: off
+motion_server_brightness: 0
+
 
 #
 # Motion Detection
 #
+motion_server_lightswitch: 0
 motion_server_pre_capture: 0
 motion_server_post_capture: 0
 motion_server_event_gap: 60
