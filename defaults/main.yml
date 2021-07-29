@@ -43,7 +43,7 @@ motion_server_ffmpeg_bps: 400000
 #
 # Live Stream Server
 #
-motion_server_stream_maxrate: 4
+motion_server_stream_maxrate: 24
 motion_server_stream_quality: 75
 motion_server_stream_limit: 0
 
