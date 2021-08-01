@@ -48,13 +48,15 @@
     regexp: '^height '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: server framerate'
+  lineinfile:
     line: "framerate {{ motion_server_framerate }}"
     path: /etc/motion/motion.conf
     regexp: '^framerate '
     state: present
 
-- lineinfile:
+- name: 'Motion setting: server quality'
+  lineinfile:
     line: "quality {{ motion_server_quality }}"
     path: /etc/motion/motion.conf
     regexp: '^quality '
