@@ -10,7 +10,7 @@ motion_server_enabled: false
 motion_server_image_width: 640
 motion_server_image_height: 480
 motion_server_framerate: 1
-motion_server_auto_brightness: off
+motion_server_auto_brightness: 'off'
 motion_server_brightness: 0
 
 
@@ -43,7 +43,7 @@ motion_server_ffmpeg_bps: 400000
 #
 # Live Stream Server
 #
-motion_server_stream_maxrate: 24
+motion_server_stream_maxrate: 30
 motion_server_stream_quality: 75
 motion_server_stream_limit: 0
 
