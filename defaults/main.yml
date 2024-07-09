@@ -34,9 +34,8 @@ motion_server_quality: 75
 #
 motion_server_ffmpeg_output_movies: no
 motion_server_ffmpeg_video_codec: mpeg4
-motion_server_ffmpeg_timelapse: 0
+# motion_server_ffmpeg_timelapse: 0
 motion_server_ffmpeg_duplicate_frames: true
-motion_server_ffmpeg_timelapse: 0
 motion_server_ffmpeg_timelapse_mode: daily
 motion_server_ffmpeg_bps: 400000
 
